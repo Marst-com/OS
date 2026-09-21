@@ -1,10 +1,14 @@
+import { createDesktop } from "../ui/desktop.js";
+import { createTaskbar } from "../ui/taskbar.js";
+
 const app = document.querySelector("#app");
 
-app.innerHTML = `
-  <main class="desktop">
-    <h1>DuoMarst OS</h1>
-    <p>System initialized.</p>
-  </main>
-`;
+app.innerHTML = "";
+
+const desktop = createDesktop();
+const taskbar = createTaskbar();
+
+desktop.appendChild(taskbar);
+app.appendChild(desktop);
 
 console.log("DuoMarst OS initialized.");
