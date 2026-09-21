@@ -1,3 +1,5 @@
+import { createStartMenu } from "./startMenu.js";
+
 export function createTaskbar() {
   const taskbar = document.createElement("footer");
 
@@ -17,9 +19,35 @@ export function createTaskbar() {
     </div>
   `;
 
+  const startMenu = createStartMenu();
+
+  taskbar.appendChild(startMenu);
+
+  const startButton = taskbar.querySelector("#startButton");
+
+  startButton.addEventListener("click", () => {
+    startMenu.classList.toggle("open");
+  });
+
   startClock(taskbar);
 
   return taskbar;
+}
+
+function startClock(taskbar) {
+  const clock = taskbar.querySelector("#clock");
+
+  function updateClock() {
+    const now = new Date();
+
+    clock.textContent = now.toLocaleTimeString("ko-KR", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
 }
 
 function startClock(taskbar) {
