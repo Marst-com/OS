@@ -106,3 +106,85 @@ body {
 
   font-size: 14px;
 }
+
+/* Start Menu */
+
+.start-menu {
+  position: absolute;
+
+  left: 14px;
+  bottom: 74px;
+
+  width: 320px;
+  padding: 18px;
+
+  border-radius: 16px;
+
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.start-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+
+  pointer-events: auto;
+}
+
+.start-header {
+  padding: 8px 10px 16px;
+
+  font-size: 18px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.start-apps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 14px;
+}
+
+.app-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition: 0.15s;
+}
+
+.app-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.app-item:active {
+  transform: scale(0.96);
+}
